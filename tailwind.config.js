@@ -7,7 +7,7 @@ module.exports = {
         hero: "url(./assets/images/hero.png)",
       },
       height: {
-        "hero-screen": "calc(100vh - 3.5rem)",
+        "hero-screen": "calc(100vh - 6rem)",
       },
     },
   },
