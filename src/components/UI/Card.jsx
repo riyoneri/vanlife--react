@@ -5,12 +5,12 @@ export default function Card({
   name: title,
   price,
   type,
-  buttonColor,
+  style,
 }) {
   console.log(imageUrl, price);
   return (
     <div>
-      <img src={imageUrl} className="rounded-lg" />
+      <img src={imageUrl} className={`mx-auto rounded-lg ${style}`} />
       <p className="font-semibold text-xl flex justify-between">
         <span>{title}</span>
         <span className="grid">
@@ -18,7 +18,9 @@ export default function Card({
           <span className="text-sm font-normal">/day</span>
         </span>
       </p>
-      <Button color={buttonColor} style="px-10">{type}</Button>
+      <Button color={type} style="capitalize py-1">
+        {type}
+      </Button>
     </div>
   );
 }

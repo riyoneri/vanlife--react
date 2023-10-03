@@ -1,20 +1,40 @@
-export default function Button({ children, label, style }) {
-  if (label === "red") {
+export default function Button({ children, color, style }) {
+  if (color === "simple") {
     return (
-      <button className={`bg-[#E17654] text-white ${style}`}>{children}</button>
+      <button
+        className={`bg-[#E17654] rounded-md px-5 py-2 text-white ${style}`}
+      >
+        {children}
+      </button>
     );
-  } else if (label === "black") {
+  } else if (color === "dark" || color === "luxury") {
     return (
-      <button className={`bg-[#161616] text-white ${style}`}>{children}</button>
+      <button
+        className={`bg-[#161616] rounded-md px-5 py-2 text-white ${style}`}
+      >
+        {children}
+      </button>
     );
-  } else if (label === "green") {
+  } else if (color === "rugged") {
     return (
-      <button className={`bg-[#115E59] text-white ${style}`}>{children}</button>
+      <button
+        className={`bg-[#115E59] rounded-md px-5 py-2 text-white ${style}`}
+      >
+        {children}
+      </button>
     );
-  } else if (label === "orange") {
+  } else if (color === "orange") {
     return (
-      <button className={`bg-[#FF8C38] text-white ${style}`}>{children}</button>
+      <button
+        className={`bg-[#FF8C38] rounded-md px-5 py-2 text-white ${style}`}
+      >
+        {children}
+      </button>
     );
   }
-  return <button className={`bg-[#FFEAD0] ${style}`}>{children}</button>;
+  return (
+    <button className={`bg-[#FFEAD0] rounded-md px-5 py-2 text-black ${style}`}>
+      {children}
+    </button>
+  );
 }

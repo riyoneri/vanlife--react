@@ -1,5 +1,7 @@
-import aboutImg from "../assets/images/about.png";
 import { Link } from "react-router-dom";
+import aboutImg from "../assets/images/about.png";
+
+import Button from "../components/Button/Button";
 
 export default function About() {
   return (
@@ -24,8 +26,8 @@ export default function About() {
           </p>
           <div className="bg-[#FFCC8D] mt-5 sm:mt-0 px-5 py-3 sm:py-5 rounded-md grid gap-2 justify-items-start">
             <p>Your destination is waiting. Your van is ready.</p>
-            <Link className="bg-[#161616] text-white px-5 py-2 rounded-md">
-              Explore our vans
+            <Link>
+              <Button color="dark">Explore our vans</Button>
             </Link>
           </div>
         </div>
