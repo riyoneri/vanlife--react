@@ -5,10 +5,11 @@ module.exports = {
     extend: {
       backgroundImage: {
         hero: "url(./assets/images/hero.png)",
-        about: "url(./assets/images/about.png)"
+        about: "url(./assets/images/about.png)",
       },
       height: {
         "hero-screen": "calc(100vh - 6rem)",
+        screen: "calc(100vh - 6rem)",
       },
     },
   },

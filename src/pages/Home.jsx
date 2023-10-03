@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
-import Navigation from "../components/Navigation/Navigation";
-import Footer from "../components/Footer/Footer";
 
 export default function Home() {
   return (
     <div className="bg-hero bg-no-repeat bg-cover bg-bottom h-screen">
-      <Navigation />
       <div className="h-hero-screen bg-blend-overlay bg-black/50 text-white items-center justify-center gap-10 flex flex-col px-5 sm:px-10">
         <p className="text-xl sm:text-4xl lg:text-5xl font-bold">
           You got the travel plans, we got the travel vans.
@@ -18,7 +15,6 @@ export default function Home() {
           Find your van
         </Link>
       </div>
-      <Footer />
     </div>
   );
 }
