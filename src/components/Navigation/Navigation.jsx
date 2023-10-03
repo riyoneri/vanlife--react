@@ -9,7 +9,7 @@ export default function Navigation() {
       </Link>
       <div className="flex text-[#4D4D4D] items-center gap-10">
         <Link to="/about">About</Link>
-        <Link>Vans</Link>
+        <Link to="/vans">Vans</Link>
       </div>
     </nav>
   );
