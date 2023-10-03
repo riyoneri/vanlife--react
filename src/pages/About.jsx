@@ -8,12 +8,12 @@ export default function About() {
     <div className=" ">
       <Navigation />
       <div className="h-hero-screen flex flex-col">
-        <img src={aboutImg} className="object-cover h-56 object-top" />
+        <img src={aboutImg} className="object-cover sm:h-56 object-top" />
         <div className="flex px-5 text-sm sm:text-lg lg:text-xl sm:px-10 flex-col justify-between flex-1 my-5 sm:my-10">
           <p className="text-xl sm:text-3xl lg:text-4xl font-bold">
             Don’t squeeze in a sedan when you could relax in a van.
           </p>
-          <p className="grid gap-5 mt-5">
+          <p className="grid gap-5 sm:mt-5">
             <span>
               Our mission is to enliven your road trip with the perfect travel
               van rental. Our vans are recertified before each trip to ensure
