@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import Card from "../components/UI/Card";
 import Button from "../components/Button/Button";
@@ -13,12 +14,14 @@ export default function Vans() {
   }, []);
 
   const cardDisplay = data.map((item) => (
-    <Card
-      style="max-h-[25rem] w-full sm:h-auto"
-      key={item.id}
-      {...item}
-      buttonColor="red"
-    />
+    <Link to={item.id} key={item.id}>
+      <Card
+        imageStyle="max-h-[25rem] w-full sm:h-auto"
+        cardStyle="space-y-2"
+        {...item}
+        buttonColor="red"
+      />
+    </Link>
   ));
 
   return (
