@@ -1,10 +1,17 @@
 import Button from "../Button/Button";
 
-export default function Card({ imageUrl, name: title, price, type, style }) {
+export default function Card({
+  imageUrl,
+  name: title,
+  price,
+  type,
+  imageStyle,
+  cardStyle,
+}) {
   console.log(imageUrl, price);
   return (
-    <div>
-      <img src={imageUrl} className={`mx-auto rounded-lg ${style}`} />
+    <div className={cardStyle}>
+      <img src={imageUrl} className={`mx-auto rounded-lg ${imageStyle}`} />
       <p className="font-semibold object-cover text-xl flex justify-between">
         <span>{title}</span>
         <span>
