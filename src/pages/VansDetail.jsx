@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import arrowLeft from "../assets/icons/arrow-left.jpg";
+import Button from "../components/Button/Button";
 
 const obe = {
   id: "2",
@@ -24,8 +25,25 @@ export default function VansDetail() {
           <span>Explore our van options</span>
         </Link>
       </div>
-      <div className="flex flex-col gap-10">
-        <img src={obe.imageUrl} />
+      <div className="flex flex-col gap-3 sm:w-3/4 md:w-1/2 mx-auto items-start mt-10">
+        <img src={obe.imageUrl} className="h-80 w-fit rounded-lg" />
+        <Button color={obe.type} style="capitalize mt-3">
+          {obe.type}
+        </Button>
+        <p className="font-bold text-xl">{obe.name}</p>
+        <p className="font-bold">
+          <span>$60</span>
+          <span className="font-normal text-sm"> /day</span>
+        </p>
+        <p className="">
+          The Modest Explorer is a van designed to get you out of the house and
+          into nature. This beauty is equipped with solar panels, a composting
+          toilet, a water tank and kitchenette. The idea is that you can pack up
+          your home and escape for a weekend or even longer!
+        </p>
+        <Link className="w-full">
+        <Button style="md:w-full sm:w-auto w-full rounded-sm" color="orange">Rent this van</Button>
+        </Link>
       </div>
     </div>
   );

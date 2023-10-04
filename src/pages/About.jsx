@@ -26,7 +26,7 @@ export default function About() {
           </p>
           <div className="bg-[#FFCC8D] mt-5 sm:mt-0 px-5 py-3 sm:py-5 rounded-md grid gap-2 justify-items-start">
             <p>Your destination is waiting. Your van is ready.</p>
-            <Link>
+            <Link to="/vans">
               <Button color="dark">Explore our vans</Button>
             </Link>
           </div>
