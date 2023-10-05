@@ -18,11 +18,14 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="vans" element={<Vans />} />
-          <Route path="vans/:id" element={<VansDetail />} />
+
+          <Route path="vans">
+            <Route index element={<Vans />} />
+            <Route path=":id" element={<VansDetail />} />
+          </Route>
 
           <Route path="host" element={<HostLayout />}>
             <Route index element={<Host />} />
