@@ -25,6 +25,16 @@ export default function HostHeader() {
         Income
       </NavLink>
       <NavLink
+        to="/host/vans"
+        className={({ isActive }) =>
+          `hover:underline underline-offset-2 hover:text-black ${
+            isActive ? "underline text-black" : ""
+          }`
+        }
+      >
+        Vans
+      </NavLink>
+      <NavLink
         to="/host/reviews"
         className={({ isActive }) =>
           `hover:underline underline-offset-2 hover:text-black ${

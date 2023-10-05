@@ -1,14 +1,13 @@
 import Button from "../Button/Button";
 
-export default function Card({
+export const LargeCard = ({
   imageUrl,
   name: title,
   price,
   type,
   imageStyle,
   cardStyle,
-}) {
-  console.log(imageUrl, price);
+}) => {
   return (
     <div className={cardStyle}>
       <img src={imageUrl} className={`mx-auto rounded-lg ${imageStyle}`} />
@@ -24,4 +23,16 @@ export default function Card({
       </Button>
     </div>
   );
-}
+};
+
+export const SmallCard = ({ imageUrl, name: title, price }) => {
+  return (
+    <div className="flex bg-white px-5 py-3 rounded-md items-center gap-5">
+      <img src={imageUrl} className="h-14 sm:h-16 md:h-24 rounded-md" />
+      <div>
+        <p className="font-bold">{title}</p>
+        <p className="text-sm">{price}/day</p>
+      </div>
+    </div>
+  );
+};

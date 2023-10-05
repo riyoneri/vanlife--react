@@ -4,9 +4,9 @@ import HostHeader from "../Headers/HostHeader";
 
 export default function HostLayout() {
   return (
-    <div>
+    <div className="mt-5">
       <HostHeader />
-      <Outlet />
+      <Outlet/>
     </div>
   );
 }
