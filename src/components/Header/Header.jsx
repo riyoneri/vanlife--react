@@ -9,6 +9,12 @@ export default function Header() {
       </Link>
       <div className="flex text-[#4D4D4D] items-center gap-10">
         <Link
+          to="/host"
+          className="hover:underline underline-offset-2 hover:text-black"
+        >
+          Host
+        </Link>
+        <Link
           to="/about"
           className="hover:underline underline-offset-2 hover:text-black"
         >
