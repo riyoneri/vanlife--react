@@ -3,7 +3,7 @@ import logoImg from "../../assets/images/logo.png";
 
 export default function MainHeader() {
   return (
-    <nav className="flex bg-white justify-between px-5 sm:px-10 py-4 items-center">
+    <nav className="flexjustify-between px-5 sm:px-10 py-4 items-center">
       <NavLink to="/">
         <img src={logoImg} className="h-4" />
       </NavLink>

@@ -11,7 +11,6 @@ import Reviews from "./pages/Host/Reviews";
 
 // Components
 import Layout from "./components/Layouts/MainLayout";
-import HostHeader from "./components/Headers/HostHeader";
 import HostLayout from "./components/Layouts/HostLayout";
 
 export default function App() {
