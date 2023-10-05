@@ -7,12 +7,12 @@ export default function MainHeader() {
       <NavLink to="/">
         <img src={logoImg} className="h-4" />
       </NavLink>
-      <div className="flex text-[#4D4D4D] items-center gap-10">
+      <div className="flex text-[#4D4D4D] font-semibold items-center gap-10">
         <NavLink
           to="/host"
           className={({ isActive }) =>
-            `hover:underline hover:font-semibold underline-offset-2 hover:text-black ${
-              isActive ? "underline font-semibold" : ""
+            `hover:underline underline-offset-2 hover:text-black ${
+              isActive ? "underline text-black" : ""
             }`
           }
         >
@@ -21,8 +21,8 @@ export default function MainHeader() {
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            `hover:underline hover:font-semibold underline-offset-2 hover:text-black ${
-              isActive ? "underline font-semibold" : ""
+            `hover:underline underline-offset-2 hover:text-black ${
+              isActive ? "underline text-black" : ""
             }`
           }
         >
@@ -31,8 +31,8 @@ export default function MainHeader() {
         <NavLink
           to="/vans"
           className={({ isActive }) =>
-            `hover:underline hover:font-semibold underline-offset-2 hover:text-black ${
-              isActive ? "underline font-semibold" : ""
+            `hover:underline underline-offset-2 hover:text-black ${
+              isActive ? "underline text-black" : ""
             }`
           }
         >
