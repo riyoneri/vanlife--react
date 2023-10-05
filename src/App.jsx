@@ -3,24 +3,23 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Vans from "./pages/Vans";
+import Vans from "./pages/Vans/Vans";
+import VansDetail from "./pages/Vans/VansDetail";
 
 // Components
-import Navigation from "./components/Navigation/Navigation";
-import Footer from "./components/Footer/Footer";
-import VansDetail from "./pages/VansDetail";
+import Layout from "./components/Layout/Layout";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Navigation />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/vans" element={<Vans />} />
-        <Route path="/vans/:id" element={<VansDetail />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VansDetail />} />
+        </Route>
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }

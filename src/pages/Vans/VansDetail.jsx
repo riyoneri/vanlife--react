@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import arrowLeft from "../assets/icons/arrow-left.jpg";
-import Button from "../components/Button/Button";
+import arrowLeft from "../../assets/icons/arrow-left.jpg";
+import Button from "../../components/Button/Button";
 
 export default function VansDetail() {
   const [van, setVan] = useState(null);

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import logoImg from "../../assets/images/logo.png";
 
-export default function Navigation() {
+export default function Header() {
   return (
     <nav className="flex bg-white justify-between px-5 sm:px-10 py-4 items-center">
       <Link to="/">

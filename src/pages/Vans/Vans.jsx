@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import Card from "../components/UI/Card";
-import Button from "../components/Button/Button";
+import Card from "../../components/UI/Card";
+import Button from "../../components/Button/Button";
 
 export default function Vans() {
   const [data, setData] = useState([]);

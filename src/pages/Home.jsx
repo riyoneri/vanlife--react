@@ -11,7 +11,10 @@ export default function Home() {
           Add adventure to your life by joining the #vanlife movement. Rent the
           perfect van to make your perfect road trip.
         </p>
-        <Link to="/vans" className="bg-[#FF8C38] self-stretch sm:self-center text-center sm:px-32 py-2 rounded-sm font-semibold">
+        <Link
+          to="/vans"
+          className="bg-[#FF8C38] self-stretch sm:self-center text-center sm:px-32 py-2 rounded-sm font-semibold"
+        >
           Find your van
         </Link>
       </div>
