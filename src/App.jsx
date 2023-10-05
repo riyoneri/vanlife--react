@@ -6,8 +6,8 @@ import About from "./pages/About";
 import Vans from "./pages/Vans/Vans";
 import VansDetail from "./pages/Vans/VansDetail";
 import Host from "./pages/Host/Dashboard";
-import Income from "./pages/Host/Income/Income"
-import Reviews from "./pages/Host/Reviews/Reviews"
+import Income from "./pages/Host/Income"
+import Reviews from "./pages/Host/Reviews"
 
 // Components
 import Layout from "./components/Layout/Layout";
