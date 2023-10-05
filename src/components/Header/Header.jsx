@@ -8,8 +8,18 @@ export default function Header() {
         <img src={logoImg} className="h-4" />
       </Link>
       <div className="flex text-[#4D4D4D] items-center gap-10">
-        <Link to="/about">About</Link>
-        <Link to="/vans">Vans</Link>
+        <Link
+          to="/about"
+          className="hover:underline underline-offset-2 hover:text-black"
+        >
+          About
+        </Link>
+        <Link
+          to="/vans"
+          className="hover:underline underline-offset-2 hover:text-black"
+        >
+          Vans
+        </Link>
       </div>
     </nav>
   );
