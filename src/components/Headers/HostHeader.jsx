@@ -4,7 +4,7 @@ export default function HostHeader() {
   return (
     <nav className="flex gap-5 text-sm sm:text-base sm:gap-10 text-[#4D4D4D] sm:px-10 px-5">
       <NavLink
-        to="/host"
+        to="."
         end
         className={({ isActive }) =>
           `hover:underline underline-offset-2 hover:text-black ${
@@ -15,7 +15,7 @@ export default function HostHeader() {
         Dashboard
       </NavLink>
       <NavLink
-        to="/host/income"
+        to="income"
         className={({ isActive }) =>
           `hover:underline underline-offset-2 hover:text-black ${
             isActive ? "underline text-black" : ""
@@ -25,7 +25,7 @@ export default function HostHeader() {
         Income
       </NavLink>
       <NavLink
-        to="/host/vans"
+        to="vans"
         className={({ isActive }) =>
           `hover:underline underline-offset-2 hover:text-black ${
             isActive ? "underline text-black" : ""
@@ -35,7 +35,7 @@ export default function HostHeader() {
         Vans
       </NavLink>
       <NavLink
-        to="/host/reviews"
+        to="reviews"
         className={({ isActive }) =>
           `hover:underline underline-offset-2 hover:text-black ${
             isActive ? "underline text-black" : ""

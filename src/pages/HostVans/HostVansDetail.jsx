@@ -19,7 +19,7 @@ export default function HostVansDetail() {
     <div className="px-5 sm:px-10 mb-10">
       <div className="text-xl mt-10 flex">
         <Link
-          to="/vans"
+          to=".."
           className="flex gap-2 underline underline-offset-4 items-center"
         >
           <img src={arrowLeft} />
