@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function HostHeader() {
   return (
-    <nav className="flex gap-10 text-[#4D4D4D]">
+    <nav className="flex gap-5 text-sm sm:text-base sm:gap-10 text-[#4D4D4D] sm:px-10 px-5">
       <NavLink
         to="/host"
         end

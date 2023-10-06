@@ -34,15 +34,10 @@ export default function VansDetail() {
           </Button>
           <p className="font-bold text-xl">{van.name}</p>
           <p className="font-bold">
-            <span>$60</span>
+            <span>${van.price}</span>
             <span className="font-normal text-sm"> /day</span>
           </p>
-          <p className="">
-            The Modest Explorer is a van designed to get you out of the house
-            and into nature. This beauty is equipped with solar panels, a
-            composting toilet, a water tank and kitchenette. The idea is that
-            you can pack up your home and escape for a weekend or even longer!
-          </p>
+          <p>{van.description}</p>
           <Link className="w-full">
             <Button
               style="md:w-full sm:w-auto w-full rounded-sm"
