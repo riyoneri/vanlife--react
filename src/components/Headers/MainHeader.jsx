@@ -5,7 +5,7 @@ export default function MainHeader() {
   return (
     <nav className="flex justify-between px-5 sm:px-10 py-4 items-center">
       <NavLink to="/">
-        <img src={logoImg} className="h-4" />
+        <img src={logoImg} className="h-4" alt="Logo image" />
       </NavLink>
       <div className="flex text-[#4D4D4D] font-semibold items-center gap-10">
         <NavLink

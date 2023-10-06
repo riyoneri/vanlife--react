@@ -22,14 +22,18 @@ export default function HostVansDetail() {
           to=".."
           className="flex gap-2 underline underline-offset-4 items-center"
         >
-          <img src={arrowLeft} />
+          <img src={arrowLeft} alt="Arrow left" />
           <span>Explore our van options</span>
         </Link>
       </div>
       {van ? (
         <div className="flex flex-col bg-white p-3 gap-3 lg:w-3/4 mx-auto items-start mt-10">
           <div className="flex items-center gap-5">
-            <img src={van.imageUrl} className="sm:h-80 h-32 w-fit rounded-lg" />
+            <img
+              src={van.imageUrl}
+              alt="Van picture"
+              className="sm:h-80 h-32 w-fit rounded-lg"
+            />
             <div className="sm:space-y-3 space-y-2">
               <Button color={van.type} style="capitalize">
                 {van.type}
