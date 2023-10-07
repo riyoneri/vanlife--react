@@ -9,7 +9,7 @@ import Host from "./pages/Host/Dashboard";
 import Income from "./pages/Host/Income";
 import Reviews from "./pages/Host/Reviews";
 import HostVans from "./pages/HostVans/HostVans";
-import HostVansDetail from "./components/HostVansDetails/HostVansDetail";
+import HostVansDetail from "./components/HostVansDetails/HostVansInfo";
 import HostVansDetailPhotos from "./components/HostVansDetails/HostVansDetailPhotos";
 import HostVansDetailPricing from "./components/HostVansDetails/HostVansDetailPricing";
 
