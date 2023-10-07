@@ -6,7 +6,7 @@ export default function HostLayout() {
   return (
     <div className="mt-5">
       <HostHeader />
-      <Outlet/>
+      <Outlet />
     </div>
   );
 }

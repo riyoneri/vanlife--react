@@ -19,7 +19,9 @@ export default function HostVansDetailLayout() {
         <>
           <HostVansDetail {...van} />
           <HostVansDetailHeader />
-          <Outlet context={[van, setVan]} />
+          <div className="px-5 sm:px-10">
+            <Outlet context={[van, setVan]} />
+          </div>
         </>
       ) : (
         <p className="mt-5 text-center font-bold my-10">Loading...</p>

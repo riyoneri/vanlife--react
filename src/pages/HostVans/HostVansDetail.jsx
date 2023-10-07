@@ -32,7 +32,7 @@ export default function HostVansDetail({
           <span>Explore our van options</span>
         </Link>
       </div>
-      <div className="flex flex-col bg-white p-3 gap-3 lg:w-3/4 mx-auto items-start mt-10">
+      <div className="flex flex-col bg-white p-3 gap-3 lg:w-4/5 mx-auto items-start mt-10">
         <div className="flex items-center gap-5">
           <img
             src={imageUrl}
