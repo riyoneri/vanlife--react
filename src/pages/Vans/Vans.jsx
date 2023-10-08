@@ -7,24 +7,48 @@ import { LargeCard } from "../../components/UI/Cards";
 import Button from "../../components/Button/Button";
 
 export default function Vans() {
-  const [data, setData] = useState([]);
+  const [vans, setVans] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const typeFilter = searchParams.get("type");
 
   useEffect(() => {
     async function loadVans() {
-      setLoading(true);
-      const data = await getVans();
-      setData(data);
-      setLoading(false);
+      try {
+        setLoading(true);
+        const data = await getVans();
+        console.log(data);
+        setVans([]);
+      } catch (err) {
+        console.log(err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
     }
 
     loadVans();
   }, []);
 
-  const cardDisplay = data
+  if (loading) {
+    return (
+      <p className="text-lg py-10 sm:text-2xl font-bold text-center">
+        Loading ....
+      </p>
+    );
+  }
+
+  if (error) {
+    return (
+      <p className="text-lg py-10 sm:text-2xl font-bold text-center">
+        Error Occurred: {error}
+      </p>
+    );
+  }
+
+  const cardDisplay = vans
     .filter((item) =>
       typeFilter ? item.type === typeFilter.toLocaleLowerCase() : true
     )
@@ -42,10 +66,6 @@ export default function Vans() {
         />
       </Link>
     ));
-
-  if (loading) {
-    return <p className="text-lg py-10 sm:text-2xl font-bold text-center">Loading ....</p>;
-  }
 
   return (
     <div className="px-5 sm:px-10 mb-10">
@@ -109,7 +129,7 @@ export default function Vans() {
         )}
       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-10">
-        {cardDisplay}
+        {4}
       </div>
     </div>
   );
