@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
+import { getVans } from "../../api";
+
 import { LargeCard } from "../../components/UI/Cards";
 import Button from "../../components/Button/Button";
 
@@ -11,9 +13,12 @@ export default function Vans() {
   const typeFilter = searchParams.get("type");
 
   useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setData(data.vans));
+    async function loadVans() {
+      const data = await getVans();
+      setData(data);
+    }
+
+    loadVans();
   }, []);
 
   const cardDisplay = data
