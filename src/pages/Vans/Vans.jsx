@@ -63,11 +63,13 @@ export default function Vans() {
             </Button>
           </span>
         </div>
-        <span onClick={() => setSearchParams({})}>
-          <button className="underline underline-offset-2 text-sm sm:text-base">
-            Clear filters
-          </button>
-        </span>
+        {typeFilter && (
+          <span onClick={() => setSearchParams({})}>
+            <button className="underline underline-offset-2 text-sm sm:text-base">
+              Clear filters
+            </button>
+          </span>
+        )}
       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-10">
         {cardDisplay}
