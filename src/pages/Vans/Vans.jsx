@@ -40,25 +40,46 @@ export default function Vans() {
         <div className="flex gap-2 sm:gap-5">
           <span
             onClick={() => setSearchParams({ type: "simple" })}
-            className="hover:bg-[#E17654] bg-[#FFEAD0] rounded-md"
+            className={`${
+              typeFilter === "simple"
+                ? "bg-[#E17654]"
+                : "hover:bg-[#E17654] bg-[#FFEAD0]"
+            } rounded-md`}
           >
-            <Button style="sm:px-5 sm:py-2 sm:text-base text-sm px-2 bg-transparent hover:text-white">
+            <Button
+              selected={typeFilter === "simple"}
+              style="sm:px-5 sm:py-2 sm:text-base text-sm px-2 bg-transparent hover:text-white"
+            >
               Simple
             </Button>
           </span>
           <span
             onClick={() => setSearchParams({ type: "luxury" })}
-            className="hover:bg-[#161616] bg-[#FFEAD0] rounded-md"
+            className={`${
+              typeFilter === "luxury"
+                ? "bg-[#161616]"
+                : "hover:bg-[#161616] bg-[#FFEAD0]"
+            } rounded-md`}
           >
-            <Button style="sm:px-5 sm:py-2 sm:text-base text-sm px-2 bg-transparent hover:text-white">
+            <Button
+              selected={typeFilter === "luxury"}
+              style="sm:px-5 sm:py-2 sm:text-base text-sm px-2 bg-transparent hover:text-white"
+            >
               Luxury
             </Button>
           </span>
           <span
             onClick={() => setSearchParams({ type: "rugged" })}
-            className="hover:bg-[#115E59] bg-[#FFEAD0] rounded-md"
+            className={`${
+              typeFilter === "rugged"
+                ? "bg-[#115E59]"
+                : "hover:bg-[#115E59] bg-[#FFEAD0]"
+            } rounded-md`}
           >
-            <Button style="sm:px-5 sm:py-2 sm:text-base text-sm px-2 bg-transparent hover:text-white">
+            <Button
+              selected={typeFilter === "rugged"}
+              style="sm:px-5 sm:py-2 sm:text-base text-sm px-2 bg-transparent hover:text-white"
+            >
               Rugged
             </Button>
           </span>
