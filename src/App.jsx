@@ -12,6 +12,7 @@ import HostVans from "./pages/HostVans/HostVans";
 import HostVansDetail from "./components/HostVansDetails/HostVansInfo";
 import HostVansDetailPhotos from "./components/HostVansDetails/HostVansDetailPhotos";
 import HostVansDetailPricing from "./components/HostVansDetails/HostVansDetailPricing";
+import NotFound from "./pages/NotFound";
 
 // Components
 import Layout from "./components/Layouts/MainLayout";
@@ -42,6 +43,7 @@ export default function App() {
             </Route>
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
