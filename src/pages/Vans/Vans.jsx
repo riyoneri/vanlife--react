@@ -9,7 +9,6 @@ export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const typeFilter = searchParams.get("type");
-  console.log(typeFilter);
 
   useEffect(() => {
     fetch("/api/vans")
@@ -18,7 +17,9 @@ export default function Vans() {
   }, []);
 
   const cardDisplay = data
-    .filter((item) => (typeFilter ? item.type === typeFilter : true))
+    .filter((item) =>
+      typeFilter ? item.type === typeFilter.toLocaleLowerCase() : true
+    )
     .map((item) => (
       <Link to={item.id} key={item.id}>
         <LargeCard
@@ -37,19 +38,36 @@ export default function Vans() {
       </h1>
       <div className="mt-5 flex justify-between items-center">
         <div className="flex gap-2 sm:gap-5">
-          <Button style="sm:px-5 sm:py-2 sm:text-base text-sm px-2">
-            Simple
-          </Button>
-          <Button style="sm:px-5 sm:py-2 sm:text-base text-sm px-2">
-            Luxury
-          </Button>
-          <Button style="sm:px-5 sm:py-2 sm:text-base text-sm px-2">
-            Rugged
-          </Button>
+          <Link
+            to="?type=simple"
+            className="hover:bg-[#E17654] bg-[#FFEAD0] rounded-md"
+          >
+            <Button style="sm:px-5 sm:py-2 sm:text-base text-sm px-2 bg-transparent hover:text-white">
+              Simple
+            </Button>
+          </Link>
+          <Link
+            to="?type=luxury"
+            className="hover:bg-[#161616] bg-[#FFEAD0] rounded-md"
+          >
+            <Button style="sm:px-5 sm:py-2 sm:text-base text-sm px-2 bg-transparent hover:text-white">
+              Luxury
+            </Button>
+          </Link>
+          <Link
+            to="?type=rugged"
+            className="hover:bg-[#115E59] bg-[#FFEAD0] rounded-md"
+          >
+            <Button style="sm:px-5 sm:py-2 sm:text-base text-sm px-2 bg-transparent hover:text-white">
+              Rugged
+            </Button>
+          </Link>
         </div>
-        <button className="underline underline-offset-2 text-sm sm:text-base">
-          Clear filters
-        </button>
+        <Link to=".">
+          <button className="underline underline-offset-2 text-sm sm:text-base">
+            Clear filters
+          </button>
+        </Link>
       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-10">
         {cardDisplay}
