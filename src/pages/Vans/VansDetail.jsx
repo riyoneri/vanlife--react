@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 
 import arrowLeft from "../../assets/icons/arrow-left.jpg";
 import Button from "../../components/Button/Button";
 
 export default function VansDetail() {
   const [van, setVan] = useState(null);
+  const location = useLocation();
   const params = useParams();
+
+  console.log(location);
 
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
@@ -19,7 +22,7 @@ export default function VansDetail() {
     <div className="px-5 sm:px-10 mb-10">
       <div className="text-xl mt-10 flex">
         <Link
-          to=".."
+          to={`..?${location?.state?.search || ""}`}
           className="flex gap-2 underline underline-offset-4 items-center"
         >
           <img src={arrowLeft} />

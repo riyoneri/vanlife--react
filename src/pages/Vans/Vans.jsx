@@ -21,7 +21,11 @@ export default function Vans() {
       typeFilter ? item.type === typeFilter.toLocaleLowerCase() : true
     )
     .map((item) => (
-      <Link to={item.id} key={item.id}>
+      <Link
+        to={item.id}
+        key={item.id}
+        state={{ search: searchParams.toString() }}
+      >
         <LargeCard
           imageStyle="max-h-[25rem] w-full sm:h-auto"
           cardStyle="space-y-2"
