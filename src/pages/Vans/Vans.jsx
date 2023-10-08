@@ -9,13 +9,16 @@ import Button from "../../components/Button/Button";
 export default function Vans() {
   const [data, setData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [loading, setLoading] = useState(false);
 
   const typeFilter = searchParams.get("type");
 
   useEffect(() => {
     async function loadVans() {
+      setLoading(true);
       const data = await getVans();
       setData(data);
+      setLoading(false);
     }
 
     loadVans();
@@ -39,6 +42,10 @@ export default function Vans() {
         />
       </Link>
     ));
+
+  if (loading) {
+    return <p className="text-lg py-10 sm:text-2xl font-bold text-center">Loading ....</p>;
+  }
 
   return (
     <div className="px-5 sm:px-10 mb-10">
