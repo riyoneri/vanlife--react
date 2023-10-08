@@ -24,7 +24,7 @@ export default function Vans() {
       <Link
         to={item.id}
         key={item.id}
-        state={{ search: searchParams.toString() }}
+        state={{ search: searchParams.toString(), type: typeFilter }}
       >
         <LargeCard
           imageStyle="max-h-[25rem] w-full sm:h-auto"

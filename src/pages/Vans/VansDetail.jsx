@@ -26,7 +26,7 @@ export default function VansDetail() {
           className="flex gap-2 underline underline-offset-4 items-center"
         >
           <img src={arrowLeft} />
-          <span>Explore our van options</span>
+          <span>Back to {`${location?.state?.type || "all"}`} vans</span>
         </Link>
       </div>
       {van ? (
