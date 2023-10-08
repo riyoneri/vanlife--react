@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 import { LargeCard } from "../../components/UI/Cards";
 import Button from "../../components/Button/Button";
 
 export default function Vans() {
   const [data, setData] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const typeFilter = searchParams.get("type");
+  console.log(typeFilter);
 
   useEffect(() => {
     fetch("/api/vans")
@@ -13,16 +17,18 @@ export default function Vans() {
       .then((data) => setData(data.vans));
   }, []);
 
-  const cardDisplay = data.map((item) => (
-    <Link to={item.id} key={item.id}>
-      <LargeCard
-        imageStyle="max-h-[25rem] w-full sm:h-auto"
-        cardStyle="space-y-2"
-        {...item}
-        buttonColor="red"
-      />
-    </Link>
-  ));
+  const cardDisplay = data
+    .filter((item) => (typeFilter ? item.type === typeFilter : true))
+    .map((item) => (
+      <Link to={item.id} key={item.id}>
+        <LargeCard
+          imageStyle="max-h-[25rem] w-full sm:h-auto"
+          cardStyle="space-y-2"
+          {...item}
+          buttonColor="red"
+        />
+      </Link>
+    ));
 
   return (
     <div className="px-5 sm:px-10 mb-10">
