@@ -19,8 +19,7 @@ export default function Vans() {
       try {
         setLoading(true);
         const data = await getVans();
-        console.log(data);
-        setVans([]);
+        setVans(data);
       } catch (err) {
         console.log(err);
         setError(err.message);
@@ -129,7 +128,7 @@ export default function Vans() {
         )}
       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10 gap-10">
-        {4}
+        {cardDisplay}
       </div>
     </div>
   );

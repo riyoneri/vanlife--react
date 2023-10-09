@@ -80,7 +80,7 @@ createServer({
 
     this.get("/vans", (schema, request) => {
       // return schema.vans.all();
-      return new Response(400, {}, { error: "Error fetching data" });
+      throw new Error("This is error")
     });
 
     this.get("/vans/:id", (schema, request) => {
