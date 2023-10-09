@@ -8,7 +8,7 @@ import {
 // Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Vans from "./pages/Vans/Vans";
+import Vans, { loader as vansLoader } from "./pages/Vans/Vans";
 import VansDetail from "./pages/Vans/VansDetail";
 import Host from "./pages/Host/Dashboard";
 import Income from "./pages/Host/Income";
@@ -38,7 +38,7 @@ const router = createBrowserRouter(
       <Route path="host" element={<HostLayout />}>
         <Route index element={<Host />} />
         <Route path="income" element={<Income />} />
-        <Route path="vans" element={<HostVans />} />
+        <Route path="vans" loader={vansLoader} element={<HostVans />} />
         <Route path="vans/:id" element={<HostVansDetailLayout />}>
           <Route index element={<HostVansDetail />} />
           <Route path="pricing" element={<HostVansDetailPricing />} />

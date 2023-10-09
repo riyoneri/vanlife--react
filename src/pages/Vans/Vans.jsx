@@ -6,6 +6,8 @@ import { getVans } from "../../api";
 import { LargeCard } from "../../components/UI/Cards";
 import Button from "../../components/Button/Button";
 
+export const loader = () => "Vans data goes here.";
+
 export default function Vans() {
   const [vans, setVans] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
