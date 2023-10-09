@@ -79,8 +79,8 @@ createServer({
     this.logging = false;
 
     this.get("/vans", (schema, request) => {
-      // return schema.vans.all();
-      throw new Error("This is error")
+      return schema.vans.all();
+      // throw new Error("This is error")
     });
 
     this.get("/vans/:id", (schema, request) => {

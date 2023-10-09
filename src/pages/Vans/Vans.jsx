@@ -21,7 +21,6 @@ export default function Vans() {
         const data = await getVans();
         setVans(data);
       } catch (err) {
-        console.log(err);
         setError(err.message);
       } finally {
         setLoading(false);
