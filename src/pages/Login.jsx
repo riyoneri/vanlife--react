@@ -12,7 +12,7 @@ export default () => {
 
   return (
     <div className="h-screen grid items-center">
-      <div className="grid gap-5 items-stretch w-1/3 px-5 mx-auto">
+      <div className="grid gap-5 items-stretch max-w-xl w-full md:w-1/2 lg:w-1/3 px-5 mx-auto">
         <p className="text-xl font-bold text-center">Sign in to your account</p>
         <div className="grid gap-4">
           <input
