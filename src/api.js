@@ -1,4 +1,6 @@
-export const getVans = async () => {
+import "./assets/data/server";
+
+export async function getVans() {
   const res = await fetch("/api/vans");
   if (!res.ok) {
     throw {
@@ -9,4 +11,4 @@ export const getVans = async () => {
   }
   const data = await res.json();
   return data.vans;
-};
+}

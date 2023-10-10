@@ -1,52 +1,20 @@
 import { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 
 import { getVans } from "../../api";
 
 import { LargeCard } from "../../components/UI/Cards";
 import Button from "../../components/Button/Button";
 
-export const loader = () => "Vans data goes here.";
+export function loader() {
+  return getVans();
+}
 
 export default function Vans() {
-  const [vans, setVans] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const vans = useLoaderData();
 
   const typeFilter = searchParams.get("type");
-
-  useEffect(() => {
-    async function loadVans() {
-      try {
-        setLoading(true);
-        const data = await getVans();
-        setVans(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadVans();
-  }, []);
-
-  if (loading) {
-    return (
-      <p className="text-lg py-10 sm:text-2xl font-bold text-center">
-        Loading ....
-      </p>
-    );
-  }
-
-  if (error) {
-    return (
-      <p className="text-lg py-10 sm:text-2xl font-bold text-center">
-        Error Occurred: {error}
-      </p>
-    );
-  }
 
   const cardDisplay = vans
     .filter((item) =>
