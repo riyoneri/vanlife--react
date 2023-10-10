@@ -42,16 +42,28 @@ const router = createBrowserRouter(
         <Route path=":id" element={<VansDetail />} />
       </Route>
 
-      <Route path="host" element={<HostLayout />}>
-        <Route index element={<Host />} />
-        <Route path="income" element={<Income />} />
-        <Route path="vans" element={<HostVans />} />
-        <Route path="vans/:id" element={<HostVansDetailLayout />}>
-          <Route index element={<HostVansDetail />} />
-          <Route path="pricing" element={<HostVansDetailPricing />} />
-          <Route path="photos" element={<HostVansDetailPhotos />} />
+      <Route path="host" loader={async () => null} element={<HostLayout />}>
+        <Route index loader={async () => null} element={<Host />} />
+        <Route path="income" loader={async () => null} element={<Income />} />
+        <Route path="vans" loader={async () => null} element={<HostVans />} />
+        <Route
+          path="vans/:id"
+          loader={async () => null}
+          element={<HostVansDetailLayout />}
+        >
+          <Route index loader={async () => null} element={<HostVansDetail />} />
+          <Route
+            path="pricing"
+            loader={async () => null}
+            element={<HostVansDetailPricing />}
+          />
+          <Route
+            path="photos"
+            loader={async () => null}
+            element={<HostVansDetailPhotos />}
+          />
         </Route>
-        <Route path="reviews" element={<Reviews />} />
+        <Route path="reviews" loader={async () => null} element={<Reviews />} />
       </Route>
 
       <Route path="login" element={<Login />} />
