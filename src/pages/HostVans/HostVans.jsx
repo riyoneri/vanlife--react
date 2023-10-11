@@ -1,27 +1,23 @@
-import { useState, useEffect } from "react";
 import { SmallCard } from "../../components/UI/Cards";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+
+import "../../assets/data/server";
+
+import { getHostVans } from "../../api";
+
+export function loader() {
+  return getHostVans();
+}
 
 export default function HostVans() {
-  const [data, setData] = useState([]);
+  const data = useLoaderData();
 
-  useEffect(() => {
-    fetch("/api/host/vans")
-      .then((res) => res.json())
-      .then((data) => setData(data.vans))
-      .catch((err) => console.log(err));
-  }, []);
+  let displayCards = data.map((van) => (
+    <Link to={`/host/vans/${van.id}`} key={van.id}>
+      <SmallCard {...van} />
+    </Link>
+  ));
 
-  let displayCards =
-    data.length > 0 ? (
-      data.map((van) => (
-        <Link to={`/host/vans/${van.id}`} key={van.id}>
-          <SmallCard {...van} />
-        </Link>
-      ))
-    ) : (
-      <p className="text-center font-bold text-xl col-span-full">Loading...</p>
-    );
   return (
     <div className="mt-5 sm:px-10 px-5">
       <p className="font-bold text-xl sm:text-2xl">Your listed vans</p>

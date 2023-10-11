@@ -13,7 +13,7 @@ import VansDetail, { loader as VanDetailLoader } from "./pages/Vans/VansDetail";
 import Host from "./pages/Host/Dashboard";
 import Income from "./pages/Host/Income";
 import Reviews from "./pages/Host/Reviews";
-import HostVans from "./pages/HostVans/HostVans";
+import HostVans, { loader as hostVansLoader } from "./pages/HostVans/HostVans";
 import HostVansDetail from "./components/HostVansDetails/HostVansInfo";
 import HostVansDetailPhotos from "./components/HostVansDetails/HostVansDetailPhotos";
 import HostVansDetailPricing from "./components/HostVansDetails/HostVansDetailPricing";
@@ -43,9 +43,9 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path="host" loader={async () => null} element={<HostLayout />}>
-        <Route index loader={async () => null} element={<Host />} />
+        <Route index element={<Host />} />
         <Route path="income" loader={async () => null} element={<Income />} />
-        <Route path="vans" loader={async () => null} element={<HostVans />} />
+        <Route path="vans" loader={hostVansLoader} element={<HostVans />} />
         <Route
           path="vans/:id"
           loader={async () => null}
