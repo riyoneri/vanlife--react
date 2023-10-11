@@ -28,6 +28,8 @@ import HostVansDetailLayout, {
   loader as hostVanDetailsLoader,
 } from "./components/Layouts/HostVansDetailLayout";
 
+import { requireAuth } from "./assets/utils/auth";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
@@ -44,28 +46,28 @@ const router = createBrowserRouter(
         <Route path=":id" element={<VansDetail />} loader={VanDetailLoader} />
       </Route>
 
-      <Route path="host" loader={async () => null} element={<HostLayout />}>
-        <Route index element={<Host />} />
-        <Route path="income" loader={async () => null} element={<Income />} />
+      <Route
+        path="host"
+        loader={async () => await requireAuth()}
+        element={<HostLayout />}
+      >
+        <Route
+          index
+          element={<Host />}
+          loader={async () => await requireAuth()}
+        />
+        <Route path="income" element={<Income />} />
         <Route path="vans" loader={hostVansLoader} element={<HostVans />} />
         <Route
           path="vans/:id"
           loader={hostVanDetailsLoader}
           element={<HostVansDetailLayout />}
         >
-          <Route index loader={async () => null} element={<HostVansDetail />} />
-          <Route
-            path="pricing"
-            loader={async () => null}
-            element={<HostVansDetailPricing />}
-          />
-          <Route
-            path="photos"
-            loader={async () => null}
-            element={<HostVansDetailPhotos />}
-          />
+          <Route index element={<HostVansDetail />} />
+          <Route path="pricing" element={<HostVansDetailPricing />} />
+          <Route path="photos" element={<HostVansDetailPhotos />} />
         </Route>
-        <Route path="reviews" loader={async () => null} element={<Reviews />} />
+        <Route path="reviews" element={<Reviews />} />
       </Route>
 
       <Route path="login" element={<Login />} />

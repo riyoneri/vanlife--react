@@ -1,6 +1,6 @@
 import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 
-import { getVans } from "../../api";
+import { getVans } from "../../assets/utils/api";
 
 import { LargeCard } from "../../components/UI/Cards";
 import Button from "../../components/Button/Button";

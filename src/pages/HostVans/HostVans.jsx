@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 import "../../assets/data/server";
 
-import { getHostVans } from "../../api";
+import { getHostVans } from "../../assets/utils/api";
 
 export function loader() {
   return getHostVans();

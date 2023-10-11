@@ -1,4 +1,4 @@
-import "./assets/data/server";
+import "../data/server";
 
 export async function getVans(id) {
   const url = id ? `/api/vans/${id}` : "/api/vans";

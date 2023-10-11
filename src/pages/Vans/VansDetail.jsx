@@ -3,7 +3,7 @@ import { Link, useLocation, useLoaderData } from "react-router-dom";
 import arrowLeft from "../../assets/icons/arrow-left.jpg";
 import Button from "../../components/Button/Button";
 
-import { getVans } from "../../api";
+import { getVans } from "../../assets/utils/api";
 
 export function loader({ params }) {
   return getVans(params.id);
