@@ -1,9 +1,15 @@
 import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 import Button from "../components/Button/Button";
 
+export function loader({ request }) {
+  return new URL(request.url).searchParams.get("message");
+}
+
 export default () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const message = useLoaderData();
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -22,6 +28,7 @@ export default () => {
         className="grid gap-5 items-stretch max-w-xl w-full md:w-1/2 lg:w-1/3 px-5 mx-auto"
       >
         <p className="text-xl font-bold text-center">Sign in to your account</p>
+        {message && <p className="text-center text-red-600">{message}</p>}
         <div className="grid gap-4">
           <input
             type="text"
