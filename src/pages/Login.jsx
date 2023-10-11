@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, Form } from "react-router-dom";
 
 import { loginUser } from "../assets/utils/api";
 
@@ -9,33 +9,21 @@ export function loader({ request }) {
   return new URL(request.url).searchParams.get("message");
 }
 
+export function action(obj) {
+  console.log(obj);
+  return null;
+} 
+
 export default () => {
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState(null);
-  const [formData, setFormData] = useState({ email: "", password: "" });
   const message = useLoaderData();
   const navigate = useNavigate();
 
-  function handleChange(event) {
-    setError(null);
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    setStatus("submitting");
-    setError(null);
-    loginUser(formData)
-      .then((user) => navigate("/host", { replace: true }))
-      .catch((err) => setError(err.message))
-      .finally(() => setStatus("idle"));
-  }
-
   return (
     <div className="h-screen grid items-center">
-      <form
-        onSubmit={handleSubmit}
+      <Form
+        method="post"
         className="grid gap-5 items-stretch max-w-xl w-full md:w-1/2 lg:w-1/3 px-5 mx-auto"
       >
         <p className="text-xl font-bold text-center">Sign in to your account</p>
@@ -47,22 +35,18 @@ export default () => {
             placeholder="Email Address"
             className="py-1 px-2 border-2 rounded-sm focus:outline-0"
             name="email"
-            onChange={handleChange}
-            value={formData.email}
           />
           <input
             type="text"
             placeholder="Password"
             className="py-1 px-2 border-2 rounded-sm focus:outline-0"
             name="password"
-            onChange={handleChange}
-            value={formData.password}
           />
         </div>
         <Button color="orange" disabled={status === "submitting"}>
           {status === "submitting" ? "Logging in..." : "Log in"}
         </Button>
-      </form>
+      </Form>
     </div>
   );
 };
