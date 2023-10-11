@@ -9,7 +9,7 @@ import {
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Vans, { loader as vansLoader } from "./pages/Vans/Vans";
-import VansDetail from "./pages/Vans/VansDetail";
+import VansDetail, { loader as VanDetailLoader } from "./pages/Vans/VansDetail";
 import Host from "./pages/Host/Dashboard";
 import Income from "./pages/Host/Income";
 import Reviews from "./pages/Host/Reviews";
@@ -39,7 +39,7 @@ const router = createBrowserRouter(
           loader={vansLoader}
           errorElement={<Error />}
         />
-        <Route path=":id" element={<VansDetail />} />
+        <Route path=":id" element={<VansDetail />} loader={VanDetailLoader} />
       </Route>
 
       <Route path="host" loader={async () => null} element={<HostLayout />}>
