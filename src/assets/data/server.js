@@ -3,6 +3,7 @@ import { createServer, Model } from "miragejs";
 createServer({
   models: {
     vans: Model,
+    users: Model,
   },
 
   seeds(server) {
@@ -109,11 +110,7 @@ createServer({
       const { email, password } = JSON.parse(request.requestBody);
       const foundUser = schema.users.findBy({ email, password });
       if (!foundUser) {
-        return new Response(
-          401,
-          {},
-          { message: "No user with those credentials found!" }
-        );
+        throw "No user with those credentials found!";
       }
 
       foundUser.password = undefined;
