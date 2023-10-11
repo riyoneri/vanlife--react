@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 import { loginUser } from "../assets/utils/api";
 
@@ -14,6 +14,7 @@ export default () => {
   const [error, setError] = useState(null);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const message = useLoaderData();
+  const navigate = useNavigate();
 
   function handleChange(event) {
     setError(null);
@@ -26,7 +27,7 @@ export default () => {
     setStatus("submitting");
     setError(null);
     loginUser(formData)
-      .then((user) => console.log(user))
+      .then((user) => navigate("/host", { replace: true }))
       .catch((err) => setError(err.message))
       .finally(() => setStatus("idle"));
   }
