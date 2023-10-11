@@ -1,5 +1,4 @@
-import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import arrowLeft from "../../assets/icons/arrow-left.jpg";
 import Button from "../../components/Button/Button";
@@ -11,21 +10,11 @@ export default function HostVansDetail({
   description,
   name,
 }) {
-  const [van, setVan] = useState(null);
-  const { id } = useParams();
-
-  useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setVan(data.vans[0]))
-      .catch((err) => console.log(err));
-  }, [id]);
-
   return (
     <div className="px-5 sm:px-10">
       <div className="text-xl mt-10 flex">
         <Link
-          to=".."
+          to="../vans"
           className="flex gap-2 underline underline-offset-4 items-center"
         >
           <img src={arrowLeft} alt="Arrow left" />

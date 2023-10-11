@@ -24,7 +24,9 @@ import Login from "./pages/Login";
 // Components
 import Layout from "./components/Layouts/MainLayout";
 import HostLayout from "./components/Layouts/HostLayout";
-import HostVansDetailLayout from "./components/Layouts/HostVansDetailLayout";
+import HostVansDetailLayout, {
+  loader as hostVanDetailsLoader,
+} from "./components/Layouts/HostVansDetailLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -48,7 +50,7 @@ const router = createBrowserRouter(
         <Route path="vans" loader={hostVansLoader} element={<HostVans />} />
         <Route
           path="vans/:id"
-          loader={async () => null}
+          loader={hostVanDetailsLoader}
           element={<HostVansDetailLayout />}
         >
           <Route index loader={async () => null} element={<HostVansDetail />} />

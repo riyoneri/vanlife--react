@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { useState } from "react";
+import { Outlet, useLoaderData } from "react-router-dom";
 import HostVansDetailHeader from "../Headers/HostVansDetailHeader";
 import HostVansDetail from "../../pages/HostVans/HostVansDetail";
 
-export default function HostVansDetailLayout() {
-  const [van, setVan] = useState(null);
-  const { id } = useParams();
-  useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setVan(data.vans[0]))
-      .catch((err) => console.log(err));
-  }, [id]);
+import { getHostVans } from "../../api";
 
+export function loader({ params }) {
+  return getHostVans(params.id);
+}
+
+export default function HostVansDetailLayout() {
+  const vans = useLoaderData();
+
+  const [van, setVan] = useState(vans[0]);
   return (
     <>
       {van ? (
@@ -20,7 +20,7 @@ export default function HostVansDetailLayout() {
           <HostVansDetail {...van} />
           <HostVansDetailHeader />
           <div className="px-5 sm:px-10">
-            <Outlet context={[van, setVan]} />
+            <Outlet context={[vans, setVan]} />
           </div>
         </>
       ) : (
