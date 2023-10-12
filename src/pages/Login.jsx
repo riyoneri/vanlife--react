@@ -1,10 +1,10 @@
 import { useState } from "react";
 import {
   useLoaderData,
-  useNavigate,
   Form,
   redirect,
   useActionData,
+  useNavigation,
 } from "react-router-dom";
 
 import { loginUser } from "../assets/utils/api";
@@ -33,9 +33,8 @@ export async function action({ request }) {
 }
 
 export default () => {
-  const [status, setStatus] = useState("idle");
   const message = useLoaderData();
-  const navigate = useNavigate();
+  const status = useNavigation().state;
 
   const error = useActionData();
 
@@ -47,8 +46,9 @@ export default () => {
         replace
       >
         <p className="text-xl font-bold text-center">Sign in to your account</p>
-        {message && <p className="text-center text-red-600">{message}</p>}
-        {error && <p className="text-center text-red-600">{error}</p>}
+        {(message || error) && (
+          <p className="text-center text-red-600">{error || message}</p>
+        )}
         <div className="grid gap-4">
           <input
             type="text"
