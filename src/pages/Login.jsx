@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { useLoaderData, useNavigate, Form, redirect } from "react-router-dom";
+import {
+  useLoaderData,
+  useNavigate,
+  Form,
+  redirect,
+  useActionData,
+} from "react-router-dom";
 
 import { loginUser } from "../assets/utils/api";
 
@@ -16,9 +22,9 @@ export async function action({ request }) {
 
   const data = await loginUser({ email, password });
 
-  // if (!data.user) {
-  //   return redirect(`/login?message=No user with those credentials found!`);
-  // }
+  if (!data.user) {
+    return "No user with those credentials found!";
+  }
 
   localStorage.setItem("loggedin", true);
   const redirectt = redirect("/host");
@@ -28,9 +34,10 @@ export async function action({ request }) {
 
 export default () => {
   const [status, setStatus] = useState("idle");
-  const [error, setError] = useState(null);
   const message = useLoaderData();
   const navigate = useNavigate();
+
+  const error = useActionData();
 
   return (
     <div className="h-screen grid items-center">
