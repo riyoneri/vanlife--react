@@ -37,6 +37,7 @@ export default () => {
       <Form
         method="post"
         className="grid gap-5 items-stretch max-w-xl w-full md:w-1/2 lg:w-1/3 px-5 mx-auto"
+        replace
       >
         <p className="text-xl font-bold text-center">Sign in to your account</p>
         {message && <p className="text-center text-red-600">{message}</p>}
