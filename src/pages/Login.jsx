@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData, useNavigate, Form } from "react-router-dom";
+import { useLoaderData, useNavigate, Form, redirect } from "react-router-dom";
 
 import { loginUser } from "../assets/utils/api";
 
@@ -14,15 +14,16 @@ export async function action({ request }) {
   const email = formData.get("email");
   const password = formData.get("password");
 
-  try {
-    const data = await loginUser({ email, password });
-    localStorage.setItem("loggedin", true);
-  } catch (err) {
-    console.log(err);
-    return null;
-  }
+  const data = await loginUser({ email, password });
 
-  return null;
+  // if (!data.user) {
+  //   return redirect(`/login?message=No user with those credentials found!`);
+  // }
+
+  localStorage.setItem("loggedin", true);
+  const redirectt = redirect("/host");
+  redirectt.body = true;
+  return redirectt;
 }
 
 export default () => {

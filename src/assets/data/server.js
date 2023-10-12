@@ -110,7 +110,11 @@ createServer({
       const { email, password } = JSON.parse(request.requestBody);
       const foundUser = schema.users.findBy({ email, password });
       if (!foundUser) {
-        throw "No user with those credentials found!";
+        return new Response(
+          401,
+          {},
+          { message: "No user with those credentials found!" }
+        );
       }
 
       foundUser.password = undefined;
