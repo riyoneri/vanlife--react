@@ -3,6 +3,8 @@ import logoImg from "../../assets/images/logo.png";
 import userIcon from "../../assets/icons/user-circle.svg";
 
 export default function MainHeader() {
+  const fakeLogout = () => localStorage.clear("loggedin");
+
   return (
     <nav className="flex justify-between px-5 sm:px-10 py-4 items-center">
       <NavLink to="/">
@@ -49,6 +51,9 @@ export default function MainHeader() {
         >
           <img src={userIcon} />
         </NavLink>
+        <button onClick={fakeLogout} className="bg-red-200 px-3 rounded-md">
+          X
+        </button>
       </div>
     </nav>
   );
