@@ -4,8 +4,10 @@ import HostVansDetailHeader from "../Headers/HostVansDetailHeader";
 import HostVansDetail from "../../pages/HostVans/HostVansDetail";
 
 import { getHostVans } from "../../assets/utils/api";
+import { requireAuth } from "../../assets/utils/auth";
 
-export function loader({ params }) {
+export async function loader({ params, request }) {
+  await requireAuth(request);
   return getHostVans(params.id);
 }
 
