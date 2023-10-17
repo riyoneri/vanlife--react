@@ -77,8 +77,8 @@ const router = createBrowserRouter(
       />
 
       <Route path="*" element={<NotFound />} />
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
 export default function App() {

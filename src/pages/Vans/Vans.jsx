@@ -17,7 +17,7 @@ export default function Vans() {
 
   const cardDisplay = vans
     .filter((item) =>
-      typeFilter ? item.type === typeFilter.toLocaleLowerCase() : true
+      typeFilter ? item.type === typeFilter.toLocaleLowerCase() : true,
     )
     .map((item) => (
       <Link

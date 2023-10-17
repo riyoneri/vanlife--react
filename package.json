@@ -6,7 +6,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "format": "prettier check ."
+    "format": "prettier --write ."
   },
   "author": "riyoneri",
   "license": "ISC",
