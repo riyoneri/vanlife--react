@@ -6,7 +6,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "npx husky-init"
   },
   "author": "riyoneri",
   "license": "ISC",
@@ -16,6 +17,9 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "^5.0.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --write"
   },
   "browserslist": {
     "production": [
